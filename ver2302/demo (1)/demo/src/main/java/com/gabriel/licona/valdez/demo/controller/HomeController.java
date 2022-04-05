@@ -41,6 +41,6 @@ public class HomeController {
 		Vacante vac = new  Vacante();
 		vac = serviceVacantes.buscarPorId(id);
 		model.addAttribute("vacante", vac);
-		return "vacantes/detalleVacantes";
+		return "vacantes/detalle";
 	}
 }
