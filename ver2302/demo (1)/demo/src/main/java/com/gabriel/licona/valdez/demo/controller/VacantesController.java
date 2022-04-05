@@ -57,7 +57,7 @@ public class VacantesController {
 		Vacante vacante = serviceVacantes.buscarPorId(idVacante);
 		model.addAttribute("categorias", serviceCategoria.obtenerCategoria());
 		model.addAttribute("vacante", vacante);
-		return "vacantes/formVacante";
+		return "vacantes/formVacantes";
 	}
 	
 	@GetMapping("/eliminar/{id}")
@@ -160,7 +160,7 @@ public class VacantesController {
 	Page<Vacante> lista = serviceVacantes.buscarTodas(page);
 	model.addAttribute("total", serviceVacantes.buscarTodas(page));
 	model.addAttribute("vacantes", lista);
-	return "vacantes/listaVacantes";
+	return "/vacantes/listaVacantes";
 	}
 	
 }	
