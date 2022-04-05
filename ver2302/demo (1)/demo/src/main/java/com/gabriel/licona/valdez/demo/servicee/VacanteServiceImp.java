@@ -110,7 +110,7 @@ private List<Vacante>lista= null;
 	public int numeroRegistros() {
 	
 		int to;
-	to=obtenerTodos().size();
+	to=obtenerTodas().size();
 		return to;
 	}
 
