@@ -36,7 +36,7 @@ import com.gabriel.licona.valdez.demo.util.Utileria;
 public class VacantesController {
 	
 	@Autowired
-	private IntServiceVacantes serviceVacantes;
+	private IntVacantes serviceVacantes;
 	
 	@Autowired
 	private IntServiceCategorias serviceCategorias;
