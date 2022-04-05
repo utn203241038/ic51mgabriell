@@ -15,5 +15,5 @@ public interface IntServiceCategorias {
 	public Categoria buscarPorId(Integer idCategoria);
 	public void eliminar(Integer idCategoria);
 	public Integer numeroCategoria();
-	public Page<Categoria> buscarTodos(Pageable page);
+	public Page<Categoria> buscarTodas(Pageable page);
 }
