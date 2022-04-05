@@ -23,7 +23,7 @@ public class CategoriasController {
 	
 	@Autowired
 	private IntServiceCategorias serviceCategorias;
-	
+	/*
 	@GetMapping("/index")
 	public String mostrarIndex(Model model) {
 		List<Categoria> lista = new LinkedList<Categoria>();
@@ -35,7 +35,7 @@ public class CategoriasController {
 		model.addAttribute("categorias", lista);
 		return "categorias/listaCategoria";
 	}
-	
+	*/
 	@GetMapping("/eliminar/{id}")
 	public String eliminarcategoria(@PathVariable("id")int idCategoria, RedirectAttributes atributo) {
 		atributo.addFlashAttribute("msg","�La categoria se elimino con exito!");
