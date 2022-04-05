@@ -69,7 +69,7 @@ public class VacantesController {
 			for (ObjectError error: result.getAllErrors()){
 				System.out.println("Ocurrio un error: "+ error.getDefaultMessage());
 				}
-			return "vacantes/formVacantes";
+			return "/vacantes/formVacantes";
 		}
 		if (!multiPart.isEmpty()) {
 			String ruta = "C:\\empleos\\img-vacantes\\"; // Windows
@@ -154,4 +154,5 @@ public class VacantesController {
 			}
 		});
 	}
+	
 }	
