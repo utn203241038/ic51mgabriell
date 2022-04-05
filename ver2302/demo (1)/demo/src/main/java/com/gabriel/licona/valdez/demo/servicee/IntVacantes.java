@@ -9,7 +9,7 @@ import com.gabriel.licona.valdez.demo.model.Vacante;
 
 public interface IntVacantes {
 
-	public List<Vacante>obtenerTodos();
+	public List<Vacante>obtenerTodas();
 	public void eliminar(Integer IdVacante);
 	public Vacante buscarPorId(Integer IdVacante);
 	public void agregar(Vacante vacante);
