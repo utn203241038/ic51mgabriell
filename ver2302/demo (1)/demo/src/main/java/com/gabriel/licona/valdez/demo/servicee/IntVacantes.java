@@ -12,7 +12,7 @@ public interface IntVacantes {
 	public List<Vacante>obtenerTodas();
 	public void eliminar(Integer IdVacante);
 	public Vacante buscarPorId(Integer IdVacante);
-	public void agregar(Vacante vacante);
+	public void guardar(Vacante vacante);
 	public Page<Vacante> buscarTodas(Pageable page);
 	//********************************************
 	public int numeroRegistros();
