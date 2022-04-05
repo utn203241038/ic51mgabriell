@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gabriel.licona.valdez.demo.model.Vacante;
 import com.gabriel.licona.valdez.demo.servicee.IntVacantes;
-@Controller
-public class HomeController {
+
 	
 	
 @Controller
