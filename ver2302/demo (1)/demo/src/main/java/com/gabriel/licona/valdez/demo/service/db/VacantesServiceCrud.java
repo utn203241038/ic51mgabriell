@@ -40,7 +40,7 @@ public class VacantesServiceCrud implements IntVacantes {
 	}
 
 	@Override
-	public void agregar(Vacante vacante) {
+	public void guardar(Vacante vacante) {
 		repoVacantes.save(vacante);
 
 	}
