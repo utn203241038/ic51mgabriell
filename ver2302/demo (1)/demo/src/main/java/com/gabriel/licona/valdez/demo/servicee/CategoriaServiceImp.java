@@ -36,7 +36,7 @@ private List<Categoria> lista = null;
 		lista.add(c3);
 	}
 	
-	public List<Categoria> obtenerCategoria() {
+	public List<Categoria> obtenerCategorias() {
 		// TODO Auto-generated method stub
 		return lista;
 	}
