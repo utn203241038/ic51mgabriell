@@ -20,7 +20,7 @@ public class CategoriaServiceCrud implements IntServiceCategorias {
 	private CategoriasRepository repoCategoria;
 
 	@Override
-	public List<Categoria> obtenerCategoria() {
+	public List<Categoria> obtenerCategorias() {
 		// TODO Auto-generated method stub
 		return (List<Categoria>) repoCategoria.findAll();
 	}
@@ -53,7 +53,7 @@ public class CategoriaServiceCrud implements IntServiceCategorias {
 	}
 
 	@Override
-	public Page<Categoria> buscarTodos(Pageable page) {
+	public Page<Categoria> buscarTodas(Pageable page) {
 		// TODO Auto-generated method stub
 		return repoCategoria.findAll(page);
 	}
