@@ -19,7 +19,7 @@ public class VacantesServiceCrud implements IntVacantes {
 	@Autowired
 	private VacantesRepository repoVacantes;
 	@Override
-	public List<Vacante> obtenerTodos() {
+	public List<Vacante> obtenerTodas() {
 		// TODO Auto-generated method stub
 		return (List<Vacante>) repoVacantes.findAll();
 	}
