@@ -15,16 +15,19 @@ import javax.persistence.Transient;
 public class Vacante {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Integer id;
-	public String nombre;
-	public String detalles;
-	public String descripcion;
-	public String fecha;
-	public Double salario;
+	
+	private Integer id;
+	private String nombre;
+	private String descripcion;
+	private LocalDate fecha = LocalDate.now();
+	private Double salario;
 	private Integer destacado;
 	private String estatus;
-	private String imagen="logo1.png";
-	@Transient
+	private String imagen = "logo.png";
+	private String detalles;
+	
+	@OneToOne
+	@JoinColumn(name="idCategoria")
 	private Categoria categoria;
 	
 	public Categoria getCategoria() {
