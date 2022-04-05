@@ -86,7 +86,7 @@ public class CategoriasController {
 	@GetMapping(value = "/indexPaginate")
 	public String mostrarIndexPaginado(Model model, Pageable page) {
 	Page<Categoria> lista = serviceCategorias.buscarTodas(page);
-	model.addAttribute("total", serviceCategorias.numeroCategorias());
+	model.addAttribute("total", serviceCategorias.numeroCategoria());
 	model.addAttribute("categorias", lista);
 	return "categorias/listaCategorias";
 	}
