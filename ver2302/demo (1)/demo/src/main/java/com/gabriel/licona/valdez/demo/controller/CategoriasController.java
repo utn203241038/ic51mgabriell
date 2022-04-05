@@ -36,7 +36,7 @@ public class CategoriasController {
 		Categoria cat = new  Categoria();
 		cat = serviceCategorias.buscarPorId(id);
 		model.addAttribute("categoria", cat);
-		return "categorias/detalleCatergoria";
+		return "categorias/detalle";
 	}
 	
 	@PostMapping("/guardar")
@@ -88,7 +88,7 @@ public class CategoriasController {
 	Page<Categoria> lista = serviceCategorias.buscarTodas(page);
 	model.addAttribute("total", serviceCategorias.numeroCategoria());
 	model.addAttribute("categorias", lista);
-	return "categorias/listaCategorias";
+	return "categorias/listaCategoria";
 	}
 
 }
