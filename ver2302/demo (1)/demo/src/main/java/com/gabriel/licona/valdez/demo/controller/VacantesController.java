@@ -137,7 +137,7 @@ public class VacantesController {
 		Page<Vacante> lista = serviceVacantes.buscarTodas(page);
 		model.addAttribute("total", serviceVacantes.numeroRegistros());
 		model.addAttribute("vacantes", lista);
-		return "vacantes/listaVacantes";
+		return "/vacantes/listaVacantes";
 	}
 	
 	@InitBinder
