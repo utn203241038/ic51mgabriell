@@ -102,7 +102,7 @@ private List<Vacante>lista= null;
 		return null;
 	}
 
-	public void agregar(Vacante vacante) {
+	public void guardar(Vacante vacante) {
 		lista.add(vacante);
 
 	}
