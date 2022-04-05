@@ -19,7 +19,7 @@ public class Vacante {
 	private Integer id;
 	private String nombre;
 	private String descripcion;
-	private LocalDate fecha = LocalDate.now();
+	private String fecha;
 	private Double salario;
 	private Integer destacado;
 	private String estatus;
