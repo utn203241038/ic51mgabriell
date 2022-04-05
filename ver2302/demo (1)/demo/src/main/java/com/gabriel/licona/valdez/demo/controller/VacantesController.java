@@ -52,7 +52,7 @@ public class VacantesController {
 		Vacante vacante = serviceVacantes.buscarPorId(idVacante);
 		model.addAttribute("categorias",serviceCategorias.obtenerCategorias());
 		model.addAttribute("vacante",vacante);
-		return "vacantes/formVacante";
+		return "vacantes/formVacantes";
 	}
 	
 	@GetMapping("/mostrar")
@@ -60,7 +60,7 @@ public class VacantesController {
 		Vacante vac = new  Vacante();
 		vac = serviceVacantes.buscarPorId(id);
 		model.addAttribute("vacante", vac);
-		return "vacantes/detalleVacantes";
+		return "vacantes/detalle";
 	}
 	
 	@PostMapping("/guardar2")
@@ -69,7 +69,7 @@ public class VacantesController {
 			for (ObjectError error: result.getAllErrors()){
 				System.out.println("Ocurrio un error: "+ error.getDefaultMessage());
 				}
-			return "vacantes/formVacante";
+			return "vacantes/formVacantes";
 		}
 		if (!multiPart.isEmpty()) {
 			String ruta = "C:\\empleos\\img-vacantes\\"; // Windows
@@ -111,7 +111,7 @@ public class VacantesController {
 	@GetMapping("/nueva")
 	public String nuevaVacante(Vacante vacante, Model model) {
 		model.addAttribute("categorias", serviceCategorias.obtenerCategorias());
-		return "vacantes/formVacante";
+		return "vacantes/formVacantes";
 	}
 	
 	@GetMapping("/eliminar")
