@@ -15,33 +15,33 @@ import com.gabriel.licona.valdez.demo.servicee.IntVacantes;
 public class HomeController {
 	
 	
+@Controller
+public class HomeController {
+	
 	@Autowired
-	private IntVacantes serviceVacantes;
+	private IntServiceVacantes serviceVacantes;
+	
+	@GetMapping("/acerca")
+	public String acerca() {
+		return "acerca";
+	}
 	
 	@GetMapping("/")
 	public String home(Model model) {
 		List<Vacante> vacantes = new LinkedList<Vacante>();
-		vacantes = serviceVacantes.obtenerTodos();
+		vacantes = serviceVacantes.obtenerTodas();
 		for(Vacante v : vacantes) {
 			System.out.println(v);
-			
 		}
 		model.addAttribute("vacantes", vacantes);
 		return "home";
 	}
 	
-	@GetMapping("/contactos")
-	public String contacto() {
-		return "acerca";
+	@GetMapping("/mostrar")
+	public String mostrar(@RequestParam("id") Integer id, Model model) {
+		Vacante vac = new  Vacante();
+		vac = serviceVacantes.buscarPorId(id);
+		model.addAttribute("vacante", vac);
+		return "vacantes/detalleVacantes";
 	}
-	 @GetMapping("/mostrar")
-	 public String mostrar(@RequestParam("id") Integer id , Model model) {
-		 Vacante v= new Vacante();
-		 v = serviceVacantes.buscarPorId(id);
-		 model.addAttribute("vacante", v);
-		 return "vacantes/detalles";
-	 }
-	 
-	
-	
 }
