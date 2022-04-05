@@ -18,7 +18,7 @@ import com.gabriel.licona.valdez.demo.servicee.IntVacantes;
 public class HomeController {
 	
 	@Autowired
-	private IntServiceVacantes serviceVacantes;
+	private IntVacantes serviceVacantes;
 	
 	@GetMapping("/acerca")
 	public String acerca() {
