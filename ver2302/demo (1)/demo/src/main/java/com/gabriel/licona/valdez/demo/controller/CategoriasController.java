@@ -44,7 +44,7 @@ public class CategoriasController {
 	}
 
 	@GetMapping("/nueva")
-	public String nuevaCategoria() {
+	public String nuevaCategoria(Categoria categoria) {
 		return "/categorias/formCategoria";
 	}
 
