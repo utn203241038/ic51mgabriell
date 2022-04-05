@@ -20,70 +20,75 @@ import com.gabriel.licona.valdez.demo.servicee.IntServiceCategorias;
 @Controller
 @RequestMapping("/categorias")
 public class CategoriasController {
-	
+	//Inyectar una instancia de intServiceCategorias
 	@Autowired
 	private IntServiceCategorias serviceCategorias;
-	/*
-	@GetMapping("/index")
-	public String mostrarIndex(Model model) {
-		List<Categoria> lista = new LinkedList<Categoria>();
-		lista = serviceCategorias.obtenerCategoria();
-		for(Categoria c: lista) {
-			System.out.println(c);
-		}
-		model.addAttribute("total", serviceCategorias.obtenerCategoria().size());
-		model.addAttribute("categorias", lista);
-		return "categorias/listaCategoria";
+	
+	@GetMapping("/consulta")
+	public String consulta(@RequestParam("id") int idCategoria, Model model) {
+		Categoria categoria = serviceCategorias.buscarPorId(idCategoria);
+		model.addAttribute("categoria",categoria);
+		return "categorias/formCategoria";
 	}
-	*/
-	@GetMapping("/eliminar/{id}")
-	public String eliminarcategoria(@PathVariable("id")int idCategoria, RedirectAttributes atributo) {
-		atributo.addFlashAttribute("msg","�La categoria se elimino con exito!");
-		serviceCategorias.eliminar(idCategoria);
+	
+	@GetMapping("/mostrar")
+	public String mostrar(@RequestParam("id") Integer id, Model model) {
+		Categoria cat = new  Categoria();
+		cat = serviceCategorias.buscarPorId(id);
+		model.addAttribute("categoria", cat);
+		return "categorias/detalleCatergoria";
+	}
+	
+	@PostMapping("/guardar")
+	public String guardar(Categoria categoria) {
+		//System.out.println(categoria);
+		serviceCategorias.guardar(categoria);
 		return "redirect:/categorias/indexPaginate";
 	}
-
-	@GetMapping("/nueva")
-	public String nuevaCategoria(Categoria categoria) {
-		return "/categorias/formCategoria";
-	}
-
+	
+	
 	/*@PostMapping("/guardar")
 	public String guardar(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion) {
 		Categoria cat = new Categoria();
-		int id = serviceCategorias.obtenerCategoria().size();
+		int id = serviceCategorias.obtenerCategorias().size();
+		Categoria c = serviceCategorias.obtenerCategorias().get(id-1);
 		System.out.println(id);
 		cat.setId(++id);
 		cat.setNombre(nombre);
 		cat.setDescripcion(descripcion);
 		serviceCategorias.guardar(cat);
 		return "redirect:/categorias/indexPaginate";
+	}*/
+	
+	@GetMapping("/nueva")
+	public String nuevaCategoria(Categoria categoria) {
+		return "/categorias/formCategoria";
 	}
-	*/
+	
+	@GetMapping("/eliminar/{id}")
+	public String eliminarCategoria(@PathVariable("id") int idCategoria, RedirectAttributes atributo) {
+		atributo.addFlashAttribute("msg","¡La categoria se elimino con exito!");
+		serviceCategorias.eliminar(idCategoria);
+		return "redirect:/categorias/indexPaginate";
+	}
+	
+	@GetMapping("/index")
+	public String mostrarIndex(Model model) {
+		List<Categoria> lista = new LinkedList<Categoria>();
+		lista = serviceCategorias.obtenerCategorias();
+		for(Categoria c : lista) {
+			System.out.println(c);
+		}
+		model.addAttribute("categorias",lista);
+		return "categorias/indexPaginate";
+	}	
+	
 	@GetMapping(value = "/indexPaginate")
 	public String mostrarIndexPaginado(Model model, Pageable page) {
-	Page<Categoria>lista = serviceCategorias.buscarTodos(page);
-	model.addAttribute("total",serviceCategorias.numeroCategoria());
+	Page<Categoria> lista = serviceCategorias.buscarTodas(page);
+	model.addAttribute("total", serviceCategorias.numeroCategorias());
 	model.addAttribute("categorias", lista);
-	return "categorias/listaCategoria";
+	return "categorias/listaCategorias";
 	}
 
-	@GetMapping("/consulta")
-	public String consulta (@RequestParam("id") int idCategoria, Model model) {
-		
-		Categoria categoria= serviceCategorias.buscarPorId(idCategoria);
-		model.addAttribute("categorias", categoria);
-		
-		return "categorias/formCategoria";
-	}
-	
-	
-	
-	@GetMapping("/guargar")
-	public String guargar(Categoria categoria) {
-		System.out.println(categoria);
-		serviceCategorias.guardar(categoria);
-		return "redirect:/categorias/indexPaginate";
-		
-	}
 }
