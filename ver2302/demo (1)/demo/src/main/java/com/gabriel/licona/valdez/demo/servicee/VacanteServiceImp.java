@@ -80,7 +80,7 @@ private List<Vacante>lista= null;
 		}
 		}
 
-	public List<Vacante> obtenerTodos() {
+	public List<Vacante> obtenerTodas() {
 		// TODO Auto-generated method stub
 		return lista;
 	}
