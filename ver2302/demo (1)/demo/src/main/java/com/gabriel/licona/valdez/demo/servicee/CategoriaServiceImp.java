@@ -69,7 +69,7 @@ private List<Categoria> lista = null;
 	}
 
 	@Override
-	public Page<Categoria> buscarTodos(Pageable page) {
+	public Page<Categoria> buscarTodas(Pageable page) {
 		// TODO Auto-generated method stub
 		return null;
 	}
