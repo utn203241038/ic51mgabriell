@@ -65,7 +65,7 @@ public class VacantesController {
 		atributo.addFlashAttribute("msg","�La categoria se elimino con exito!");
 		//System.out.println("id : " + IdVacante);
 		serviceVacantes.eliminar(IdVacante);
-		return "redirect:/vacantes/index";
+		return "redirect:/vacantes/indexPaginate";
 	}
 	
 	@GetMapping("/nueva")
@@ -131,7 +131,7 @@ public class VacantesController {
 		System.out.println(vacante);
 		attributes.addFlashAttribute("msg", "Registro Guardado");
 		serviceVacantes.agregar(vacante);
-		return "redirect:/vacantes/index";
+		return "redirect:/vacantes/indexPaginate";
 	}
 	
 	
