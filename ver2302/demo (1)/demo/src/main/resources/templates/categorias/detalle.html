@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/images/star.png">
+    <link rel="icon" href="/images/logo9.png">
 
     <title>EmpleosApp | Detalles de la Oferta de Trabajo</title>
     <!-- Bootstrap core CSS -->
@@ -18,24 +18,22 @@
 
   <body>
 
-   <header th:insert="fragmentos/menu.html::menu-principal">
-    </header>  
+    <header th:insert="fragmentos/menu.html::menu-principal">
+    </header>
 
     <main role="main">
       <hr>
       <div class="container"> 
+
         <div class="row">
           <div class="col-md-9">
             <div class="card">
-              <h4 class="card-header">Aplicar para <strong>Datos de la categoria</strong></h4>              
-              <div class="card-body" th:each="categoria:${categoria}">
-                <h5 class="card-title"><strong>id de la categoria: </strong> <span th:text="${categoria.id}"></span></h5>
-                <h6 class="card-title"><strong>Nombre : </strong> <span th:text="${categoria.nombre}"></span></h6>                
-                <h6 class="card-title"><strong>Descripción : </strong><span th:text="${categoria.descripcion}"></span></h6>
-                <div class="card bg-light mb-3" >
-                </div>   
-                <a class="btn btn-primary" href="#" role="button" title="Quiero aplicar para esta oferta de trabajo."><i class="fas fa-file" aria-hidden="true"></i> Aplicar</a>                            
-              </div>
+              <h4 class="card-header"><strong>Datos de la categoria</strong></h4>              
+              <div class="card-body" th:each="categorias:${categoria}">
+                <h5 class="card-title"><strong>Id de la vacante: </strong> <span th:text="${categoria.id}"></span></h5>
+                <h6 class="card-title"><strong>Nombre: </strong> <span th:text="${categoria.nombre}"></span></h6>                
+                <h7 class="card-title"><strong>Descripcion: </strong><span th:text="${categoria.descripcion}"></span></h7><br>
+               </div>
             </div>  
           </div>
         </div>
@@ -43,13 +41,14 @@
       </div>
     </main>
 
-    <footer class="footer" th:insert="fragmentos/pie.html::pie-pagina">
+   <footer class="footer" th:insert="fragmentos/pie.html::pie-pagina">
     </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="@{/bootstrap/js/bootstrap.min.js}"></script>     
+    <script src="@{/bootstrap/js/bootstrap.min.js}"></script>
   </body>
 </html>
+
