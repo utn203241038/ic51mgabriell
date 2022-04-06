@@ -63,7 +63,26 @@ public class VacantesController {
 		return "vacantes/detalle";
 	}
 	
-	
+	@PostMapping("/guardar2")
+	public String guardar2(Vacante vacante, BindingResult result, RedirectAttributes attributes, @RequestParam("archivoImagen") MultipartFile multiPart) {
+		if (result.hasErrors()) {
+			for (ObjectError error: result.getAllErrors()){
+				System.out.println("Ocurrio un error: "+ error.getDefaultMessage());
+				}
+			return "vacantes/formVacantes";
+		}
+		if (!multiPart.isEmpty()) {
+			String ruta = "C:\\empleos\\img-vacantes\\"; // Windows
+			String nombreImagen = Utileria.guardarArchivo(multiPart, ruta);
+			if (nombreImagen != null){
+			vacante.setImagen(nombreImagen);
+			}}
+		vacante.setCategoria((serviceCategorias.buscarPorId(vacante.getCategoria().getId())));
+		System.out.println(vacante);
+		attributes.addFlashAttribute("msg", "Registro Guardado");
+		serviceVacantes.guardar(vacante);
+		return "redirect:/vacantes/indexPaginate";
+	}
 	
 	/*
 	@PostMapping("/guardar")
