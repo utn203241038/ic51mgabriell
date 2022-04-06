@@ -63,7 +63,7 @@ public class VacantesController {
 		return "vacantes/detalle";
 	}
 	
-	@PostMapping("/guardar2")
+	@PostMapping("/guardar")
 	public String guardar2(Vacante vacante, BindingResult result, RedirectAttributes attributes, @RequestParam("archivoImagen") MultipartFile multiPart) {
 		if (result.hasErrors()) {
 			for (ObjectError error: result.getAllErrors()){
